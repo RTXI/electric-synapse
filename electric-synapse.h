@@ -22,35 +22,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <default_gui_model.h>
 
-class ElecSyn : public DefaultGUIModel
-{
-
-public:
-
-	ElecSyn(void);
-	virtual ~ElecSyn(void);
-
+class ElecSyn : public DefaultGUIModel {
+	
+	public:
+	
+		ElecSyn(void);
+		virtual ~ElecSyn(void);
+	
 	// the main function run every time step, contains model logic
-	virtual void execute(void);
-
-protected:
-
+		virtual void execute(void);
+	
+	protected:
+	
 	// run each time model parameters are updated
-	virtual void update(DefaultGUIModel::update_flags_t);
-
-private:
-
-	void
-	initParameters();
+		virtual void update(DefaultGUIModel::update_flags_t);
+	
+	private:
+	
+		void initParameters();
 	
 	// parameters
-	double G;
-	double Vm1;
-	double Vm2;
-	double Im1;
-	double Im2;
-	
-	double dt; // system period
-	double systime;
-	long long count;
+		double G;
+		double Vm1;
+		double Vm2;
+		double Im1;
+		double Im2;
+
+		double dt; // system period
+		double systime;
+		long long count;
 };

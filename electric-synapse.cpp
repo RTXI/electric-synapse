@@ -35,13 +35,11 @@ static DefaultGUIModel::variable_t vars[] = {
 // some necessary variable
 static size_t num_vars = sizeof(vars) / sizeof(DefaultGUIModel::variable_t);
 
-// constructor 
+// constructor
 // provides default values for paramters, calls update(INIT)
-ElecSyn::ElecSyn(void) : 
-DefaultGUIModel("Electrical Synapse",::vars,::num_vars){
-	setWhatsThis(
-      "<p><b>Electrical Synapse:</b><br>This module creates an electrical connection between two cells.</p>");
-  createGUI(vars, num_vars);
+ElecSyn::ElecSyn(void) : DefaultGUIModel("Electrical Synapse",::vars,::num_vars) {
+	setWhatsThis( "<p><b>Electrical Synapse:</b><br>This module creates an electrical connection between two cells.</p>" );
+	createGUI(vars, num_vars);
 	initParameters();
 	update(INIT);
 	refresh();
@@ -63,31 +61,29 @@ void ElecSyn::execute(void) {
 
 void ElecSyn::update(DefaultGUIModel::update_flags_t flag) {
 	switch(flag) {
-	case INIT:
-		setParameter("Conductance (S)", QString::number(G));
-		break;
-	case MODIFY:
-		G = getParameter("Conductance (S)").toDouble();
-		break;
-	case PAUSE:
-		output(0) = 0.0;
-		output(1) = 0.0;
-		break;
-	case UNPAUSE:
-		count = 0;
-		systime = 0;
-		break;
-	case PERIOD:
-		dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
-		break;
-	default:
-		break;
+		case INIT:
+			setParameter("Conductance (S)", QString::number(G));
+			break;
+		case MODIFY:
+			G = getParameter("Conductance (S)").toDouble();
+			break;
+		case PAUSE:
+			output(0) = 0.0;
+			output(1) = 0.0;
+			break;
+		case UNPAUSE:
+			count = 0;
+			systime = 0;
+			break;
+		case PERIOD:
+			dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
+			break;
+		default:
+			break;
 	}
 }
 
-void
-ElecSyn::initParameters()
-{
+void ElecSyn::initParameters() {
 	G = 1e-9;
 	dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
 	systime = 0;
