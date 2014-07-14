@@ -64,20 +64,25 @@ void ElecSyn::update(DefaultGUIModel::update_flags_t flag) {
 		case INIT:
 			setParameter("Conductance (S)", QString::number(G));
 			break;
+
 		case MODIFY:
 			G = getParameter("Conductance (S)").toDouble();
 			break;
+
 		case PAUSE:
 			output(0) = 0.0;
 			output(1) = 0.0;
 			break;
+
 		case UNPAUSE:
 			count = 0;
 			systime = 0;
 			break;
+
 		case PERIOD:
 			dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
 			break;
+
 		default:
 			break;
 	}

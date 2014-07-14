@@ -3,6 +3,8 @@
 **Requirements:** None  
 **Limitations:**  None  
 
+![Electric Synapse GUI](electric-synapse.png)
+
 Creates a simulated connection, or 'synapse,' between two cells. The module takes in voltage signals from two cells and outputs currents based on the voltage difference and user-specified conductance. 
 
 ####Input Channels:
