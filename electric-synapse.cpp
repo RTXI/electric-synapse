@@ -43,6 +43,7 @@ ElecSyn::ElecSyn(void) : DefaultGUIModel("Electrical Synapse",::vars,::num_vars)
 	initParameters();
 	update(INIT);
 	refresh();
+	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
 
 ElecSyn::~ElecSyn(void) {}
