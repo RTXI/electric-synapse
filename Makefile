@@ -1,8 +1,8 @@
-PLUGIN_NAME = electric-synapse
+PLUGIN_NAME = ElecSyn
 
-HEADERS = electric-synapse.h
+HEADERS = ElecSyn.h
 
-SOURCES = electric-synapse.cpp 
+SOURCES = ElecSyn.cpp 
 
 
 ### Do not edit below this line ###
