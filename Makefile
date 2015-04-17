@@ -1,4 +1,4 @@
-PLUGIN_NAME = electric-synapse
+PLUGIN_NAME = electric_synapse
 
 HEADERS = electric-synapse.h
 
