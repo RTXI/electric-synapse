@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <electric-synapse.h>
-#include <QtGui>
 
 extern "C" Plugin::Object *createRTXIPlugin(void) {
 	return new ElecSyn();
@@ -29,7 +28,7 @@ static DefaultGUIModel::variable_t vars[] = {
 	{"Vm 2", "V", DefaultGUIModel::INPUT, },
 	{"Im 1", "A", DefaultGUIModel::OUTPUT, },
 	{"Im 2", "A", DefaultGUIModel::OUTPUT, },
-	{"Conductance (S)", "Conductance (S)", DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
+	{"Conductance (S)", "Conductance of the simulated synapse (S)", DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
 };
 
 // some necessary variable
@@ -43,7 +42,7 @@ ElecSyn::ElecSyn(void) : DefaultGUIModel("Electrical Synapse",::vars,::num_vars)
 	initParameters();
 	update(INIT);
 	refresh();
-	QTimer::singleShot(0, this, SLOT(resizeMe()));
+	resizeMe();
 }
 
 ElecSyn::~ElecSyn(void) {}
